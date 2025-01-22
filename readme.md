@@ -13,8 +13,8 @@
 
 > React for CLIs. Build and test your CLI output using components.
 
-[![Build Status](https://github.com/vadimdemedes/ink/workflows/test/badge.svg)](https://github.com/vadimdemedes/ink/actions)
-[![npm](https://img.shields.io/npm/dm/ink?logo=npm)](https://npmjs.com/package/ink)
+[![Build Status](https://github.com/eXhumer/ink/workflows/test/badge.svg)](https://github.com/eXhumer/ink/actions)
+[![npm](https://img.shields.io/npm/dm/@exhumer/ink?logo=npm)](https://npmjs.com/package/@exhumer/ink)
 
 Ink provides the same component-based UI building experience that React offers in the browser, but for command-line apps.
 It uses [Yoga](https://github.com/facebook/yoga) to build Flexbox layouts in the terminal, so most CSS-like props are available in Ink as well.
@@ -41,14 +41,14 @@ Only Ink's methods will be documented in this readme.
 ## Install
 
 ```sh
-npm install ink react
+npm install @exhumer/ink react
 ```
 
 ## Usage
 
 ```jsx
 import React, {useState, useEffect} from 'react';
-import {render, Text} from 'ink';
+import {render, Text} from '@exhumer/ink';
 
 const Counter = () => {
 	const [counter, setCounter] = useState(0);
@@ -179,7 +179,7 @@ Next, create a file `source.js`, where you'll type code that uses Ink:
 
 ```jsx
 import React from 'react';
-import {render, Text} from 'ink';
+import {render, Text} from '@exhumer/ink';
 
 const Demo = () => <Text>Hello World</Text>;
 
@@ -216,7 +216,7 @@ Note that all text must be wrapped in a [`<Text>`](#text) component.
 This component can display text, and change its style to make it bold, underline, italic or strikethrough.
 
 ```jsx
-import {render, Text} from 'ink';
+import {render, Text} from '@exhumer/ink';
 
 const Example = () => (
 	<>
@@ -364,7 +364,7 @@ If `truncate-*` is passed, Ink will truncate text instead, which will result in 
 It's like `<div style="display: flex">` in the browser.
 
 ```jsx
-import {render, Box, Text} from 'ink';
+import {render, Box, Text} from '@exhumer/ink';
 
 const Example = () => (
 	<Box margin={2}>
@@ -1167,7 +1167,7 @@ Default: `1`
 Number of newlines to insert.
 
 ```jsx
-import {render, Text, Newline} from 'ink';
+import {render, Text, Newline} from '@exhumer/ink';
 
 const Example = () => (
 	<Text>
@@ -1195,7 +1195,7 @@ It's useful as a shortcut for filling all the available spaces between elements.
 For example, using `<Spacer>` in a `<Box>` with default flex direction (`row`) will position "Left" on the left side and will push "Right" to the right side.
 
 ```jsx
-import {render, Box, Text, Spacer} from 'ink';
+import {render, Box, Text, Spacer} from '@exhumer/ink';
 
 const Example = () => (
 	<Box>
@@ -1212,7 +1212,7 @@ In a vertical flex direction (`column`), it will position "Top" to the top of th
 Note, that container needs to be tall to enough to see this in effect.
 
 ```jsx
-import {render, Box, Text, Spacer} from 'ink';
+import {render, Box, Text, Spacer} from '@exhumer/ink';
 
 const Example = () => (
 	<Box flexDirection="column" height={10}>
@@ -1240,7 +1240,7 @@ to display a list of generated pages, while still displaying a live progress bar
 
 ```jsx
 import React, {useState, useEffect} from 'react';
-import {render, Static, Box, Text} from 'ink';
+import {render, Static, Box, Text} from '@exhumer/ink';
 
 const Example = () => {
 	const [tests, setTests] = useState([]);
@@ -1353,7 +1353,7 @@ That's what `<Transform>` component does, it gives you an output string of its c
 **Note:** `<Transform>` must be applied only to `<Text>` children components and shouldn't change the dimensions of the output, otherwise layout will be incorrect.
 
 ```jsx
-import {render, Transform} from 'ink';
+import {render, Transform} from '@exhumer/ink';
 
 const Example = () => (
 	<Transform transform={output => output.toUpperCase()}>
@@ -1371,7 +1371,7 @@ When the output wraps to multiple lines, it can be helpful to know which line is
 For example, to implement a hanging indent component, you can indent all the lines except for the first.
 
 ```jsx
-import {render, Transform} from 'ink';
+import {render, Transform} from '@exhumer/ink';
 
 const HangingIndent = ({content, indent = 4, children, ...props}) => (
 	<Transform
@@ -1430,7 +1430,7 @@ However, if user pastes text and it's more than one character, the callback will
 You can find a full example of using `useInput` at [examples/use-input](examples/use-input/use-input.tsx).
 
 ```jsx
-import {useInput} from 'ink';
+import {useInput} from '@exhumer/ink';
 
 const UserInput = () => {
 	useInput((input, key) => {
@@ -1574,7 +1574,7 @@ Type: `Error`
 Optional error. If passed, [`waitUntilExit`](waituntilexit) will reject with that error.
 
 ```js
-import {useApp} from 'ink';
+import {useApp} from '@exhumer/ink';
 
 const Example = () => {
 	const {exit} = useApp();
@@ -1603,7 +1603,7 @@ Stdin stream passed to `render()` in `options.stdin` or `process.stdin` by defau
 Useful if your app needs to handle user input.
 
 ```js
-import {useStdin} from 'ink';
+import {useStdin} from '@exhumer/ink';
 
 const Example = () => {
 	const {stdin} = useStdin();
@@ -1620,7 +1620,7 @@ A boolean flag determining if the current `stdin` supports `setRawMode`.
 A component using `setRawMode` might want to use `isRawModeSupported` to nicely fall back in environments where raw mode is not supported.
 
 ```jsx
-import {useStdin} from 'ink';
+import {useStdin} from '@exhumer/ink';
 
 const Example = () => {
 	const {isRawModeSupported} = useStdin();
@@ -1647,7 +1647,7 @@ Ink exposes this function to be able to handle <kbd>Ctrl</kbd>+<kbd>C</kbd>, tha
 **Warning:** This function will throw unless the current `stdin` supports `setRawMode`. Use [`isRawModeSupported`](#israwmodesupported) to detect `setRawMode` support.
 
 ```js
-import {useStdin} from 'ink';
+import {useStdin} from '@exhumer/ink';
 
 const Example = () => {
 	const {setRawMode} = useStdin();
@@ -1674,7 +1674,7 @@ Type: `stream.Writable`\
 Default: `process.stdout`
 
 ```js
-import {useStdout} from 'ink';
+import {useStdout} from '@exhumer/ink';
 
 const Example = () => {
 	const {stdout} = useStdout();
@@ -1696,7 +1696,7 @@ Type: `string`
 Data to write to stdout.
 
 ```js
-import {useStdout} from 'ink';
+import {useStdout} from '@exhumer/ink';
 
 const Example = () => {
 	const {write} = useStdout();
@@ -1724,7 +1724,7 @@ Default: `process.stderr`
 Stderr stream.
 
 ```js
-import {useStderr} from 'ink';
+import {useStderr} from '@exhumer/ink';
 
 const Example = () => {
 	const {stderr} = useStderr();
@@ -1747,7 +1747,7 @@ Type: `string`
 Data to write to stderr.
 
 ```js
-import {useStderr} from 'ink';
+import {useStderr} from '@exhumer/ink';
 
 const Example = () => {
 	const {write} = useStderr();
@@ -1792,7 +1792,7 @@ Required: `false`
 Set a component's focus ID, which can be used to programmatically focus the component. This is useful for large interfaces with many focusable elements, to avoid having to cycle through all of them.
 
 ```jsx
-import {render, useFocus, Text} from 'ink';
+import {render, useFocus, Text} from '@exhumer/ink';
 
 const Example = () => {
 	const {isFocused} = useFocus();
@@ -1816,7 +1816,7 @@ Enable focus management for all components.
 **Note:** You don't need to call this method manually, unless you've disabled focus management. Focus management is enabled by default.
 
 ```js
-import {useFocusManager} from 'ink';
+import {useFocusManager} from '@exhumer/ink';
 
 const Example = () => {
 	const {enableFocus} = useFocusManager();
@@ -1835,7 +1835,7 @@ Disable focus management for all components.
 Currently active component (if there's one) will lose its focus.
 
 ```js
-import {useFocusManager} from 'ink';
+import {useFocusManager} from '@exhumer/ink';
 
 const Example = () => {
 	const {disableFocus} = useFocusManager();
@@ -1857,7 +1857,7 @@ If active component is the last in the list of focusable components, focus will 
 **Note:** Ink calls this method when user presses <kbd>Tab</kbd>.
 
 ```js
-import {useFocusManager} from 'ink';
+import {useFocusManager} from '@exhumer/ink';
 
 const Example = () => {
 	const {focusNext} = useFocusManager();
@@ -1879,7 +1879,7 @@ If active component is the first in the list of focusable components, focus will
 **Note:** Ink calls this method when user presses <kbd>Shift</kbd>+<kbd>Tab</kbd>.
 
 ```js
-import {useFocusManager} from 'ink';
+import {useFocusManager} from '@exhumer/ink';
 
 const Example = () => {
 	const {focusPrevious} = useFocusManager();
@@ -1902,7 +1902,7 @@ Switch focus to the component with the given [`id`](#id).
 If there's no component with that ID, focus will be given to the next focusable component.
 
 ```js
-import {useFocusManager, useInput} from 'ink';
+import {useFocusManager, useInput} from '@exhumer/ink';
 
 const Example = () => {
 	const {focus} = useFocusManager();
@@ -2042,7 +2042,7 @@ A reference to a `<Box>` element captured with a `ref` property.
 See [Refs](https://reactjs.org/docs/refs-and-the-dom.html) for more information on how to capture references.
 
 ```jsx
-import {render, measureElement, Box, Text} from 'ink';
+import {render, measureElement, Box, Text} from '@exhumer/ink';
 
 const Example = () => {
 	const ref = useRef();
@@ -2071,7 +2071,7 @@ Here's a simple example that checks how component is rendered:
 
 ```jsx
 import React from 'react';
-import {Text} from 'ink';
+import {Text} from '@exhumer/ink';
 import {render} from 'ink-testing-library';
 
 const Test = () => <Text>Hello World</Text>;

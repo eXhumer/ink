@@ -80,6 +80,7 @@ test.serial('don’t exit while raw mode is active', async t => {
 		);
 
 		let output = '';
+		let timeoutToClear: NodeJS.Timeout | undefined;
 
 		term.onData(data => {
 			if (data === 's') {
@@ -88,7 +89,7 @@ test.serial('don’t exit while raw mode is active', async t => {
 					term.write('q');
 				}, 2000);
 
-				setTimeout(() => {
+				timeoutToClear = setTimeout(() => {
 					term.kill();
 					t.fail();
 					resolve();
@@ -104,6 +105,7 @@ test.serial('don’t exit while raw mode is active', async t => {
 			isExited = true;
 
 			if (exitCode === 0) {
+				if (timeoutToClear !== undefined) clearTimeout(timeoutToClear);
 				t.true(output.includes('exited'));
 				t.pass();
 				resolve();

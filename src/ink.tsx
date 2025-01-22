@@ -4,7 +4,7 @@ import {throttle} from 'es-toolkit/compat';
 import ansiEscapes from 'ansi-escapes';
 import isInCi from 'is-in-ci';
 import autoBind from 'auto-bind';
-import signalExit from 'signal-exit';
+import {onExit} from 'signal-exit';
 import patchConsole from 'patch-console';
 import {type FiberRoot} from 'react-reconciler';
 import Yoga from 'yoga-wasm-web/auto';
@@ -90,7 +90,7 @@ export default class Ink {
 		);
 
 		// Unmount when process exits
-		this.unsubscribeExit = signalExit(this.unmount, {alwaysLast: false});
+		this.unsubscribeExit = onExit(this.unmount, {alwaysLast: false});
 
 		if (process.env['DEV'] === 'true') {
 			reconciler.injectIntoDevTools({

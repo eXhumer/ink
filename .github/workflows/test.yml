@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: [18, 20]
+        node_version: [18, 20, 22]
 
     steps:
       - uses: actions/checkout@v4
@@ -15,8 +15,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node_version }}
-      - run: npm install
-      - run: npm test -- --serial
+      - run: yarn
+      - run: yarn test --serial
         env:
           FORCE_COLOR: true
           CI: false

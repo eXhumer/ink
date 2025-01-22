@@ -7,8 +7,12 @@ const Test = () => {
 
 const app = render(<Test />);
 
-try {
-	await app.waitUntilExit();
-} catch (error: unknown) {
-	console.log((error as any).message);
-}
+const run = async () => {
+	try {
+		await app.waitUntilExit();
+	} catch (error: unknown) {
+		console.log((error as any).message);
+	}
+};
+
+void run();

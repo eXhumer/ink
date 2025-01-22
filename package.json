@@ -1,14 +1,24 @@
 {
-	"name": "ink",
-	"version": "5.1.0",
+	"name": "@exhumer/ink",
+	"version": "5.1.1",
 	"description": "React for CLI",
 	"license": "MIT",
-	"repository": "vadimdemedes/ink",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/eXhumer/ink.git"
+	},
 	"author": {
 		"name": "Vadim Demedes",
 		"email": "vadimdemedes@hey.com",
 		"url": "https://github.com/vadimdemedes"
 	},
+	"maintainers": [
+		{
+			"name": "eXhumer",
+			"email": "exhumer@exhumer.cc",
+			"url": "https://github.com/eXhumer"
+		}
+	],
 	"type": "module",
 	"exports": {
 		"types": "./build/index.d.ts",
@@ -48,8 +58,8 @@
 		"ansi-styles": "^6.2.1",
 		"auto-bind": "^5.0.1",
 		"chalk": "^5.3.0",
-		"cli-boxes": "^3.0.0",
-		"cli-cursor": "^4.0.0",
+		"cli-boxes": "^4.0.1",
+		"cli-cursor": "^5.0.0",
 		"cli-truncate": "^4.0.0",
 		"code-excerpt": "^4.0.0",
 		"es-toolkit": "^1.22.0",
@@ -57,8 +67,8 @@
 		"is-in-ci": "^1.0.0",
 		"patch-console": "^2.0.0",
 		"react-reconciler": "^0.29.0",
-		"scheduler": "^0.23.0",
-		"signal-exit": "^3.0.7",
+		"scheduler": "^0.25.0",
+		"signal-exit": "^4.1.0",
 		"slice-ansi": "^7.1.0",
 		"stack-utils": "^2.0.6",
 		"string-width": "^7.2.0",
@@ -70,9 +80,9 @@
 	},
 	"devDependencies": {
 		"@faker-js/faker": "^9.2.0",
-		"@sindresorhus/tsconfig": "^6.0.0",
+		"@sindresorhus/tsconfig": "^7.0.0",
 		"@types/benchmark": "^2.1.2",
-		"@types/ms": "^0.7.31",
+		"@types/ms": "^2.1.0",
 		"@types/node": "^22.9.0",
 		"@types/react": "^18.3.12",
 		"@types/react-reconciler": "^0.28.2",
@@ -82,7 +92,7 @@
 		"@types/stack-utils": "^2.0.2",
 		"@types/ws": "^8.5.13",
 		"@vdemedes/prettier-config": "^2.0.1",
-		"ava": "^5.1.1",
+		"ava": "^6.2.0",
 		"boxen": "^8.0.1",
 		"delay": "^6.0.0",
 		"eslint-config-xo-react": "0.27.0",
@@ -92,8 +102,8 @@
 		"node-pty": "^1.0.0",
 		"p-queue": "^8.0.0",
 		"prettier": "^3.3.3",
-		"react": "^18.0.0",
-		"react-devtools-core": "^5.0.0",
+		"react": "^18.3.1",
+		"react-devtools-core": "^6.0.1",
 		"sinon": "^19.0.2",
 		"strip-ansi": "^7.1.0",
 		"ts-node": "^10.9.2",
@@ -101,9 +111,9 @@
 		"xo": "^0.59.3"
 	},
 	"peerDependencies": {
-		"@types/react": ">=18.0.0",
-		"react": ">=18.0.0",
-		"react-devtools-core": "^4.19.1"
+		"@types/react": "^18.3.18",
+		"react": "^18.3.1",
+		"react-devtools-core": "^6.0.1"
 	},
 	"peerDependenciesMeta": {
 		"@types/react": {

@@ -22,7 +22,7 @@ import {type OutputTransformer} from './render-node-to-output.js';
 // We need to conditionally perform devtools connection to avoid
 // accidentally breaking other third-party code.
 // See https://github.com/vadimdemedes/ink/issues/384
-if (process.env['DEV'] === 'true') {
+if (process.env['NODE_ENV'] === 'development') {
 	try {
 		await import('./devtools.js');
 	} catch (error: any) {

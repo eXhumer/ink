@@ -1,6 +1,6 @@
 {
 	"name": "@exhumer/ink",
-	"version": "5.2.0",
+	"version": "5.2.0-1",
 	"description": "React for CLI",
 	"license": "MIT",
 	"repository": {
@@ -107,7 +107,7 @@
 		"strip-ansi": "^7.1.0",
 		"tsx": "^4.19.2",
 		"typescript": "^5.6.3",
-		"xo": "^0.59.3"
+		"xo": "^0.60.0"
 	},
 	"peerDependencies": {
 		"@types/react": "^18.3.18",

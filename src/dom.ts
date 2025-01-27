@@ -105,7 +105,7 @@ export const insertBeforeNode = (
 	newChildNode.parentNode = node;
 
 	const index = node.childNodes.indexOf(beforeChildNode);
-	if (index >= 0) {
+	if (index !== -1) {
 		node.childNodes.splice(index, 0, newChildNode);
 		if (newChildNode.yogaNode) {
 			node.yogaNode?.insertChild(newChildNode.yogaNode, index);
@@ -139,7 +139,7 @@ export const removeChildNode = (
 	removeNode.parentNode = undefined;
 
 	const index = node.childNodes.indexOf(removeNode);
-	if (index >= 0) {
+	if (index !== -1) {
 		node.childNodes.splice(index, 1);
 	}
 

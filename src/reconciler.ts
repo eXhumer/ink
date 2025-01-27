@@ -1,4 +1,3 @@
-import process from 'node:process';
 import createReconciler from 'react-reconciler';
 import {DefaultEventPriority} from 'react-reconciler/constants.js';
 import Yoga, {type Node as YogaNode} from 'yoga-wasm-web/auto';
@@ -18,31 +17,6 @@ import {
 } from './dom.js';
 import applyStyles, {type Styles} from './styles.js';
 import {type OutputTransformer} from './render-node-to-output.js';
-
-// We need to conditionally perform devtools connection to avoid
-// accidentally breaking other third-party code.
-// See https://github.com/vadimdemedes/ink/issues/384
-if (process.env['NODE_ENV'] === 'development') {
-	try {
-		await import('./devtools.js');
-	} catch (error: any) {
-		if (error.code === 'ERR_MODULE_NOT_FOUND') {
-			console.warn(
-				`
-The environment variable DEV is set to true, so Ink tried to import \`react-devtools-core\`,
-but this failed as it was not installed. Debugging with React Devtools requires it.
-
-To install use this command:
-
-$ npm install --save-dev react-devtools-core
-				`.trim() + '\n',
-			);
-		} else {
-			// eslint-disable-next-line @typescript-eslint/only-throw-error
-			throw error;
-		}
-	}
-}
 
 type AnyObject = Record<string, unknown>;
 

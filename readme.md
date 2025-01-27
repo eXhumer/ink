@@ -136,7 +136,6 @@ render(<Counter />);
   - [`useFocusManager`](#usefocusmanager)
 - [API](#api)
 - [Testing](#testing)
-- [Using React Devtools](#using-react-devtools)
 - [Useful Components](#useful-components)
 - [Useful Hooks](#useful-hooks)
 - [Examples](#examples)
@@ -2078,27 +2077,6 @@ lastFrame() === 'Hello World'; //=> true
 ```
 
 Check out [@exhumer/ink-testing-library](https://github.com/eXhumer/ink-testing-library) for more examples and full documentation.
-
-## Using React Devtools
-
-![](media/devtools.jpg)
-
-Ink supports [React Devtools](https://github.com/facebook/react/tree/master/packages/react-devtools) out-of-the-box. To enable integration with React Devtools in your Ink-based CLI, first ensure you have installed the optional `react-devtools-core` dependency, and then run your app with `DEV=true` environment variable:
-
-```sh
-DEV=true my-cli
-```
-
-Then, start React Devtools itself:
-
-```sh
-npx react-devtools
-```
-
-After it starts up, you should see the component tree of your CLI.
-You can even inspect and change the props of components, and see the results immediatelly in the CLI, without restarting it.
-
-**Note**: You must manually quit your CLI via <kbd>Ctrl</kbd>+<kbd>C</kbd> after you're done testing.
 
 ## Useful Components
 

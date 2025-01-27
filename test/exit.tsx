@@ -68,7 +68,7 @@ test.serial('don’t exit while raw mode is active', async t => {
 		const term = spawn(
 			'node',
 			[
-				'--loader=ts-node/esm',
+				'--import=tsx',
 				path.join(__dirname, './fixtures/exit-double-raw-mode.tsx'),
 			],
 			{

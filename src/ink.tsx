@@ -1,4 +1,3 @@
-import process from 'node:process';
 import React, {type ReactNode} from 'react';
 import {throttle} from 'es-toolkit/compat';
 import ansiEscapes from 'ansi-escapes';
@@ -91,16 +90,6 @@ export default class Ink {
 
 		// Unmount when process exits
 		this.unsubscribeExit = onExit(this.unmount, {alwaysLast: false});
-
-		if (process.env['NODE_ENV'] === 'development') {
-			reconciler.injectIntoDevTools({
-				bundleType: 0,
-				// Reporting React DOM's version, not Ink's
-				// See https://github.com/facebook/react/issues/16666#issuecomment-532639905
-				version: '16.13.1',
-				rendererPackageName: 'ink',
-			});
-		}
 
 		if (options.patchConsole) {
 			this.patchConsole();

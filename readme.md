@@ -16,6 +16,8 @@
 [![Build Status](https://github.com/eXhumer/ink/workflows/test/badge.svg)](https://github.com/eXhumer/ink/actions)
 [![npm](https://img.shields.io/npm/dm/@exhumer/ink?logo=npm)](https://npmjs.com/package/@exhumer/ink)
 
+**This is a fork of the original [ink](https://github.com/vadimdemedes/ink) project with upgraded dependencies and small changes for personal use. I would suggest you to use the original project.**
+
 Ink provides the same component-based UI building experience that React offers in the browser, but for command-line apps.
 It uses [Yoga](https://github.com/facebook/yoga) to build Flexbox layouts in the terminal, so most CSS-like props are available in Ink as well.
 If you are already familiar with React, you already know Ink.
@@ -24,15 +26,13 @@ Since Ink is a React renderer, it means that all features of React are supported
 Head over to [React](https://reactjs.org) website for documentation on how to use it.
 Only Ink's methods will be documented in this readme.
 
-**Note:** This is documentation for Ink 4 and 5. If you're looking for docs on Ink 3, check out [this release](https://github.com/vadimdemedes/ink/tree/v3.2.0).
-
 ---
 
 <div align="center">
 	<p>
 		<p>
 			<sup>
-				<a href="https://opencollective.com/vadimdemedes">My open source work is supported by the community ❤️</a>
+				<a href="https://opencollective.com/vadimdemedes">The original author's open source work is supported by the community ❤️</a>
 			</sup>
 		</p>
 	</p>
@@ -70,9 +70,6 @@ render(<Counter />);
 ```
 
 <img src="media/demo.svg" width="600">
-
-You can also check it out live on [repl.it sandbox](https://ink-counter-demo.vadimdemedes.repl.run/).
-Feel free to play around with the code and fork this repl at [https://repl.it/@vadimdemedes/ink-counter-demo](https://repl.it/@vadimdemedes/ink-counter-demo).
 
 ## Who's Using Ink?
 
@@ -146,16 +143,16 @@ Feel free to play around with the code and fork this repl at [https://repl.it/@v
 
 ## Getting Started
 
-Use [create-ink-app](https://github.com/vadimdemedes/create-ink-app) to quickly scaffold a new Ink-based CLI.
+Use [create-exhumer-ink-app](https://github.com/eXhumer/create-exhumer-ink-app) to quickly scaffold a new Ink-based CLI.
 
 ```sh
-npx create-ink-app my-ink-cli
+npx create-exhumer-ink-app my-ink-cli
 ```
 
 Alternatively, create a TypeScript project:
 
 ```sh
-npx create-ink-app --typescript my-ink-cli
+npx create-exhumer-ink-app --typescript my-ink-cli
 ```
 
 <details><summary>Manual JavaScript setup</summary>
@@ -198,7 +195,7 @@ Now you can run `cli.js` with Node.js:
 node cli
 ```
 
-If you don't like transpiling files during development, you can use [import-jsx](https://github.com/vadimdemedes/import-jsx) or [@esbuild-kit/esm-loader](https://github.com/esbuild-kit/esm-loader) to `import` a JSX file and transpile it on the fly.
+If you don't like transpiling files during development, you can use [@exhumer/import-jsx](https://github.com/eXhumer/import-jsx) or [@esbuild-kit/esm-loader](https://github.com/esbuild-kit/esm-loader) to `import` a JSX file and transpile it on the fly.
 
 </p>
 </details>
@@ -2066,13 +2063,13 @@ render(<Example />);
 
 ## Testing
 
-Ink components are simple to test with [ink-testing-library](https://github.com/vadimdemedes/ink-testing-library).
+Ink components are simple to test with [@exhumer/ink-testing-library](https://github.com/eXhumer/ink-testing-library).
 Here's a simple example that checks how component is rendered:
 
 ```jsx
 import React from 'react';
 import {Text} from '@exhumer/ink';
-import {render} from 'ink-testing-library';
+import {render} from '@exhumer/ink-testing-library';
 
 const Test = () => <Text>Hello World</Text>;
 const {lastFrame} = render(<Test />);
@@ -2080,7 +2077,7 @@ const {lastFrame} = render(<Test />);
 lastFrame() === 'Hello World'; //=> true
 ```
 
-Check out [ink-testing-library](https://github.com/vadimdemedes/ink-testing-library) for more examples and full documentation.
+Check out [@exhumer/ink-testing-library](https://github.com/eXhumer/ink-testing-library) for more examples and full documentation.
 
 ## Using React Devtools
 
@@ -2155,5 +2152,4 @@ npm run example examples/[example name]
 
 ## Maintainers
 
-- [Vadim Demedes](https://github.com/vadimdemedes)
-- [Sindre Sorhus](https://github.com/sindresorhus)
+- [eXhumer] (https://github.com/eXhumer)
